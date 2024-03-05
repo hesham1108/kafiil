@@ -26,7 +26,7 @@ class RegisterPhaseOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: cubit.signupFormKey,
+      key: cubit.phaseOneFormKey,
       child: Padding(
         padding: EdgeInsets.only(top: 0.02.sh),
         child: Column(
@@ -111,6 +111,7 @@ class RegisterPhaseOne extends StatelessWidget {
                     textStyle: TextStyles.font16WhiteMedium,
                     onPressed: () async {
                       context.read<StepperCubit>().forwardStep(1);
+                      context.read<AuthCubit>().showPhaseTwo();
                       await validateThenSignup(context);
                     },
                   ),
@@ -124,7 +125,7 @@ class RegisterPhaseOne extends StatelessWidget {
   }
 
   Future<void> validateThenSignup(BuildContext context) async {
-    if (context.read<AuthCubit>().signupFormKey.currentState!.validate()) {
+    if (context.read<AuthCubit>().phaseOneFormKey.currentState!.validate()) {
       await context.read<AuthCubit>().login();
     }
   }

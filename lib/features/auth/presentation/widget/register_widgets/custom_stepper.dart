@@ -56,13 +56,14 @@ class CustomStepper extends StatelessWidget {
                   ),
                   Positioned(
                     left: 0.22.sw,
-                    top: -0.045.sh,
+                    top: -0.05.sh,
                     child: Column(
                       children: [
                         Text(
                           'Register',
                           style: TextStyles.font12MainColorSemiBold,
                         ),
+                        5.verticalSpace,
                         AnimatedContainer(
                           width: 0.09.sw,
                           height: 0.09.sw,
@@ -93,7 +94,7 @@ class CustomStepper extends StatelessWidget {
                   ),
                   Positioned(
                     right: 0.2.sw,
-                    top: -0.045.sh,
+                    top: -0.05.sh,
                     child: Column(
                       children: [
                         Text(
@@ -104,6 +105,7 @@ class CustomStepper extends StatelessWidget {
                                 : ColorsManager.mainColor,
                           ),
                         ),
+                        5.verticalSpace,
                         AnimatedContainer(
                           width: 0.09.sw,
                           height: 0.09.sw,

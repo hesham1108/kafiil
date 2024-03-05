@@ -18,7 +18,7 @@ class _SignupFormState extends State<SignupForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: widget.authCubit.signupFormKey,
+      key: widget.authCubit.phaseOneFormKey,
       child: Column(
         children: [
           AppTextFormField(

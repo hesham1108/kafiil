@@ -8,7 +8,7 @@ import 'package:kafiil/core/theming/styles.dart';
 import 'package:kafiil/features/auth/presentation/logic/cubit/auth_cubit.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/custom_stepper.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_one.dart';
-import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/register_phase_two.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -21,14 +21,21 @@ class RegisterScreen extends StatelessWidget {
           'Register',
           style: TextStyles.font18BlackSimiBold,
         ),
-        leading: InkWell(
-          onTap: () => context.pop(),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 0.035.sw),
-            child: SvgPicture.asset(
-              'assets/icons/back_button_icon.svg',
-            ),
-          ),
+        leading: BlocBuilder<AuthCubit, AuthState>(
+          buildWhen: (current, next) => current is AuthPhaseTwo,
+          builder: (context, state) {
+            return InkWell(
+              onTap: () => state is AuthPhaseTwo
+                  ? context.read<AuthCubit>().showPhaseOne
+                  : context.pop,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 0.035.sw),
+                child: SvgPicture.asset(
+                  'assets/icons/back_button_icon.svg',
+                ),
+              ),
+            );
+          },
         ),
       ),
       resizeToAvoidBottomInset: true,
@@ -58,12 +65,19 @@ class RegisterScreen extends StatelessWidget {
                           ),
                         ),
                       );
-                    } else if (state is AuthPhaseOne) {
-                      return RegisterPhaseOne(
-                        cubit: context.read<AuthCubit>(),
+                    } else if (state is AuthPhaseOne || state is AuthPhaseTwo) {
+                      return AnimatedSwitcher(
+                        duration: const Duration(
+                          milliseconds: 600,
+                        ),
+                        reverseDuration: const Duration(
+                          milliseconds: 600,
+                        ),
+                        child: state is AuthPhaseOne
+                            ? RegisterPhaseOne(cubit: context.read<AuthCubit>())
+                            : RegisterPhaseTwo(
+                                cubit: context.read<AuthCubit>()),
                       );
-                    } else if (state is AuthPhaseTwo) {
-                      return const RegisterPhaseTwo();
                     } else {
                       return Column(
                         children: [

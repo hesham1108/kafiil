@@ -17,16 +17,19 @@ class AuthCubit extends Cubit<AuthState> {
   final LocalStorage localStorage;
   AuthCubit({required this.authRepo, required this.localStorage})
       : super(AuthInitial());
-  TextEditingController userNameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController userNameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final loginFormKey = GlobalKey<FormState>();
-  final signupFormKey = GlobalKey<FormState>();
+  final phaseOneFormKey = GlobalKey<FormState>();
+  final phaseTwoFormKey = GlobalKey<FormState>();
 
-  TextEditingController nameController = TextEditingController();
-  TextEditingController signupPasswordController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordConfirmationController =
+  final TextEditingController aboutController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController signupPasswordController =
+      TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordConfirmationController =
       TextEditingController();
 
   Future<void> login() async {
@@ -69,6 +72,14 @@ class AuthCubit extends Cubit<AuthState> {
     await localStorage.deleteSecureData(ApiConstants.tokenKey).then((x) {
       emit(LogoutSuccess());
     });
+  }
+
+  showPhaseOne() {
+    emit(AuthPhaseOne());
+  }
+
+  showPhaseTwo() {
+    emit(AuthPhaseTwo());
   }
 
   @override
