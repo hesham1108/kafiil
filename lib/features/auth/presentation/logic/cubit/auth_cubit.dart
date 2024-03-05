@@ -24,13 +24,29 @@ class AuthCubit extends Cubit<AuthState> {
   final phaseTwoFormKey = GlobalKey<FormState>();
 
   final TextEditingController aboutController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
+  TextEditingController salaryController = TextEditingController();
+  TextEditingController imageController = TextEditingController();
+  final TextEditingController birthDateController = TextEditingController();
+  final TextEditingController nameController =
+      TextEditingController(text: '1000');
   final TextEditingController signupPasswordController =
       TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordConfirmationController =
       TextEditingController();
+
+  setSalary(int salary) {
+    salaryController.text = salary.toString();
+  }
+
+  setImage(String image) {
+    imageController.text = image;
+  }
+
+  setBirthDate(DateTime birthDate) {
+    birthDateController.text = birthDate.toString().split(' ')[0].toString();
+  }
 
   Future<void> login() async {
     emit(AuthLoading());
@@ -75,6 +91,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   showPhaseOne() {
+    debugPrint('lol');
     emit(AuthPhaseOne());
   }
 

@@ -11,5 +11,6 @@ class ColorsManager {
   static const Color mediumGray = Color(0xFFF9F9F9);
   static const Color moreLightGray = Color(0xFFFDFDFF);
   static const Color grey500 = Color(0xFF696F79);
+  static const Color grey800 = Color(0xFF333333);
   static const Color darkTextColor = Color(0xFF000000);
 }

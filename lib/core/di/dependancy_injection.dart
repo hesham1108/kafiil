@@ -5,6 +5,7 @@ import 'package:kafiil/core/networking/dio_factory.dart';
 import 'package:kafiil/features/auth/data/web_services/auth_service.dart';
 import 'package:kafiil/features/auth/domain/repos/auth_repo.dart';
 import 'package:kafiil/features/auth/presentation/logic/cubit/auth_cubit.dart';
+import 'package:kafiil/features/auth/presentation/logic/salary_cubit/salary_cubit.dart';
 import 'package:kafiil/features/auth/presentation/logic/stepper_cubit/stepper_cubit.dart';
 import 'package:kafiil/features/home/presentation/logic/navigation/navigation_cubit.dart';
 import 'package:kafiil/features/splash/presentation/logic/splash_cubit.dart';
@@ -51,4 +52,6 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<StepperCubit>(() => StepperCubit());
   //Toggle Password Cubit
   getIt.registerFactory<TogglePasswordCubit>(() => TogglePasswordCubit());
+  //Salary Cubit
+  getIt.registerFactory<SalaryCubit>(() => SalaryCubit());
 }

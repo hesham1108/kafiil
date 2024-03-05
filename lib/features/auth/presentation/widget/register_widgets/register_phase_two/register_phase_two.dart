@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kafiil/core/widgets/app_text_form_field.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/avatar.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/birth_date_field.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/salary_widget.dart';
 
 import '../../../logic/cubit/auth_cubit.dart';
 
@@ -28,6 +30,8 @@ class RegisterPhaseTwo extends StatelessWidget {
               maxLines: 4,
               label: 'About',
             ),
+            SalaryWidget(),
+            BirthDateField(cubit: cubit),
           ],
         ),
       ),

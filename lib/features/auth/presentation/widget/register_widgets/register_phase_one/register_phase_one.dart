@@ -6,11 +6,11 @@ import 'package:kafiil/core/widgets/app_text_form_field.dart';
 import 'package:kafiil/features/auth/presentation/logic/cubit/auth_cubit.dart';
 import 'package:kafiil/features/auth/presentation/logic/toggle_password_cubit/toggle_password_cubit.dart';
 
-import '../../../../../core/helpers/spacing.dart';
-import '../../../../../core/theming/colors.dart';
-import '../../../../../core/theming/styles.dart';
-import '../../../../../core/widgets/app_text_button.dart';
-import '../../logic/stepper_cubit/stepper_cubit.dart';
+import '../../../../../../core/helpers/spacing.dart';
+import '../../../../../../core/theming/colors.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_text_button.dart';
+import '../../../logic/stepper_cubit/stepper_cubit.dart';
 
 class RegisterPhaseOne extends StatelessWidget {
   final AuthCubit cubit;

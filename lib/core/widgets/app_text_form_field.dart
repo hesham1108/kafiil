@@ -21,6 +21,8 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.maxLines,
+    this.onTap,
+    this.enabled = true,
   });
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder, enabledBorder;
@@ -32,8 +34,9 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final void Function()? onTap;
   final int? maxLines;
-
+  final bool enabled;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -42,6 +45,11 @@ class AppTextFormField extends StatelessWidget {
         Text(label, style: TextStyles.font12GreyMedium),
         verticalSpace(8),
         TextFormField(
+          // enabled: enabled,
+          cursorHeight: enabled ? null : 0,
+          keyboardType: enabled ? null : TextInputType.none,
+          showCursor: enabled,
+          onTap: onTap,
           controller: controller,
           decoration: InputDecoration(
             isDense: true,
