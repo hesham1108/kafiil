@@ -21,6 +21,8 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsManager.white,
       appBar: AppBar(
+        elevation: 0,
+        scrolledUnderElevation: 0.0,
         title: Text(
           'Account Login',
           style: TextStyles.font18BlackSimiBold,

@@ -47,11 +47,12 @@ class AppTextFormField extends StatelessWidget {
         verticalSpace(8),
         TextFormField(
           initialValue: initialValue,
-          // enabled: enabled,
+          enabled: initialValue == null,
           cursorHeight: enabled ? null : 0,
           keyboardType: enabled ? null : TextInputType.none,
           showCursor: enabled,
           onTap: onTap,
+          enableSuggestions: true,
           controller: initialValue == null ? controller : null,
           decoration: InputDecoration(
             isDense: true,
@@ -62,11 +63,15 @@ class AppTextFormField extends StatelessWidget {
                   vertical: 18.h,
                 ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
               borderSide: BorderSide(width: 0.0, color: backgroundColor!),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              borderRadius: const BorderRadius.all(Radius.circular(18)),
+              borderSide: BorderSide(width: 0.0, color: backgroundColor!),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderRadius: const BorderRadius.all(Radius.circular(18)),
               borderSide: BorderSide(width: 0.0, color: backgroundColor!),
             ),
             errorBorder: OutlineInputBorder(
@@ -74,14 +79,14 @@ class AppTextFormField extends StatelessWidget {
                 color: Colors.red,
                 width: 1.3,
               ),
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(18),
             ),
             focusedErrorBorder: OutlineInputBorder(
               borderSide: const BorderSide(
                 color: Colors.red,
                 width: 1.3,
               ),
-              borderRadius: BorderRadius.circular(16.0),
+              borderRadius: BorderRadius.circular(18),
             ),
             hintStyle: hintStyle ?? TextStyles.font14GrayRegular,
             hintText: hintText,

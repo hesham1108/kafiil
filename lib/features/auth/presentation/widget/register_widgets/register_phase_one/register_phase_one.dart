@@ -5,6 +5,10 @@ import 'package:kafiil/core/helpers/validators.dart';
 import 'package:kafiil/core/widgets/app_text_form_field.dart';
 import 'package:kafiil/features/auth/presentation/logic/cubit/auth_cubit.dart';
 import 'package:kafiil/features/auth/presentation/logic/toggle_password_cubit/toggle_password_cubit.dart';
+import 'package:kafiil/features/auth/presentation/widget/fieldes/email_field.dart';
+import 'package:kafiil/features/auth/presentation/widget/fieldes/name_fields.dart';
+import 'package:kafiil/features/auth/presentation/widget/fieldes/password_field.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_one/user_types_widget.dart';
 
 import '../../../../../../core/helpers/spacing.dart';
 import '../../../../../../core/theming/colors.dart';
@@ -31,54 +35,12 @@ class RegisterPhaseOne extends StatelessWidget {
         padding: EdgeInsets.only(top: 0.02.sh),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: AppTextFormField(
-                    label: 'First Name',
-                    validator: Validators.firstNameValidator,
-                    controller: cubit.firstNameController,
-                  ),
-                ),
-                10.horizontalSpace,
-                Expanded(
-                  flex: 3,
-                  child: AppTextFormField(
-                    label: 'Last Name',
-                    validator: Validators.lastNameValidator,
-                    controller: cubit.firstNameController,
-                  ),
-                ),
-              ],
-            ),
+            NameFields(cubit: cubit),
             verticalSpace(18),
-            AppTextFormField(
-              label: 'Email Address',
-              validator: Validators.emailValidator,
-              controller: cubit.emailController,
-            ),
+            EmailField(cubit: cubit),
             verticalSpace(18),
-            BlocProvider.value(
-              value: pass,
-              child: BlocBuilder<TogglePasswordCubit, bool>(
-                builder: (context, state) {
-                  return AppTextFormField(
-                    controller: cubit.registerPasswordController,
-                    label: 'Password',
-                    isObscureText: !state,
-                    suffixIcon: GestureDetector(
-                      onTap: pass.toggle,
-                      child: Icon(
-                        !state ? Icons.visibility_off : Icons.visibility,
-                      ),
-                    ),
-                    validator: Validators.passwordValidator,
-                  );
-                },
-              ),
-            ),
+            PasswordField(cubit: cubit),
+            verticalSpace(18),
             verticalSpace(18),
             BlocProvider.value(
               value: confirmPass,
@@ -99,6 +61,8 @@ class RegisterPhaseOne extends StatelessWidget {
                 },
               ),
             ),
+            verticalSpace(18),
+            UserTypesWidget(cubit: cubit),
             verticalSpace(24),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kafiil/core/widgets/app_text_form_field.dart';
+import 'package:kafiil/core/helpers/extensions.dart';
+import 'package:kafiil/core/routing/routes.dart';
+import 'package:kafiil/features/auth/presentation/widget/fieldes/about_field.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/avatar.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/birth_date_field.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/gender_widget.dart';
@@ -32,11 +34,12 @@ class RegisterPhaseTwo extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Avatar(),
-            AppTextFormField(
-              controller: cubit.aboutController,
-              maxLines: 4,
-              label: 'About',
-            ),
+            // AppTextFormField(
+            //   controller: cubit.aboutController,
+            //   maxLines: 4,
+            //   label: 'About',
+            // ),
+            AboutField(cubit: cubit),
             verticalSpace(10),
             SalaryWidget(),
             verticalSpace(10),
@@ -53,6 +56,7 @@ class RegisterPhaseTwo extends StatelessWidget {
               backgroundColor: ColorsManager.mainColor,
               textStyle: TextStyles.font16WhiteMedium,
               onPressed: () async {
+                context.pushNamed(Routes.homeScreen);
                 // await validateThenDoLogin(context);
               },
             ),

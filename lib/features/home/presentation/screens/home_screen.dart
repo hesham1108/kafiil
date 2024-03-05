@@ -15,6 +15,9 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: ColorsManager.white,
         elevation: 0,
+        toolbarHeight: 10,
+        scrolledUnderElevation: 0.0,
+        automaticallyImplyLeading: false,
       ),
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavBar(),
@@ -25,7 +28,7 @@ class HomeScreen extends StatelessWidget {
         } else if (state.navBarItem == NavBarItems.services) {
           return Container();
         }
-        return Container();
+        return const WhoAmIScreen();
       }),
     );
   }
