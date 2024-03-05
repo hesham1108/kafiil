@@ -29,8 +29,7 @@ class _RememberMeState extends State<RememberMe> {
             padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(2)),
-              color:
-                  remember ? ColorsManager.mainColor : ColorsManager.lightGray,
+              color: remember ? ColorsManager.mainColor : ColorsManager.white,
             ),
             child: Icon(
               Icons.done,

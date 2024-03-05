@@ -12,7 +12,7 @@ import 'package:kafiil/features/auth/presentation/logic/cubit/auth_cubit.dart';
 import 'package:kafiil/features/auth/presentation/widget/dont_have_account_widget.dart';
 import 'package:kafiil/features/auth/presentation/widget/login_bloc_listener.dart';
 import 'package:kafiil/features/auth/presentation/widget/login_widgets/login_form_widget.dart';
-import 'package:kafiil/features/auth/presentation/widget/login_widgets/remember_me.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/custom_check_box.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -51,7 +51,12 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const RememberMe(),
+                  // const RememberMe(),
+                  CustomCheckBox(
+                    title: 'Remember me',
+                    remember: true,
+                    cubit: context.read<AuthCubit>(),
+                  ),
                   Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 20.0.h, horizontal: 2.w),

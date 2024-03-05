@@ -10,10 +10,11 @@ class SalaryCubit extends Cubit<int> {
 
   changeSalary(bool increase, BuildContext context) {
     if (increase) {
+      context.read<AuthCubit>().setSalary(state + 100);
       emit(state + 100);
     } else {
+      context.read<AuthCubit>().setSalary(state <= 1000 ? 1000 : state - 100);
       emit(state <= 1000 ? 1000 : state - 100);
     }
-    context.read<AuthCubit>().setSalary(state);
   }
 }

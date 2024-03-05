@@ -16,7 +16,7 @@ class CustomNavBar extends StatelessWidget {
           items: NavItems.navBarItems,
           enableFeedback: true,
           selectedItemColor: ColorsManager.mainColor,
-          unselectedItemColor: ColorsManager.mainColor.withOpacity(0.25),
+          unselectedItemColor: ColorsManager.grey300,
           // elevation: 5,
           onTap: context.read<NavigationCubit>().setIndex,
         );

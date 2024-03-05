@@ -20,7 +20,7 @@ class LoginFormWidget extends StatelessWidget {
       child: Column(
         children: [
           AppTextFormField(
-            backgroundColor: ColorsManager.mediumGray,
+            backgroundColor: ColorsManager.grey50,
             controller: authCubit.userNameController,
             label: 'Email Address',
             validator: Validators.emailValidator,

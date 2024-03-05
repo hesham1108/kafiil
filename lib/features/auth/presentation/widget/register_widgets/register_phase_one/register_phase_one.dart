@@ -39,7 +39,7 @@ class RegisterPhaseOne extends StatelessWidget {
                   child: AppTextFormField(
                     label: 'First Name',
                     validator: Validators.firstNameValidator,
-                    controller: cubit.nameController,
+                    controller: cubit.firstNameController,
                   ),
                 ),
                 10.horizontalSpace,
@@ -48,7 +48,7 @@ class RegisterPhaseOne extends StatelessWidget {
                   child: AppTextFormField(
                     label: 'Last Name',
                     validator: Validators.lastNameValidator,
-                    controller: cubit.nameController,
+                    controller: cubit.firstNameController,
                   ),
                 ),
               ],
@@ -65,7 +65,7 @@ class RegisterPhaseOne extends StatelessWidget {
               child: BlocBuilder<TogglePasswordCubit, bool>(
                 builder: (context, state) {
                   return AppTextFormField(
-                    controller: cubit.signupPasswordController,
+                    controller: cubit.registerPasswordController,
                     label: 'Password',
                     isObscureText: !state,
                     suffixIcon: GestureDetector(

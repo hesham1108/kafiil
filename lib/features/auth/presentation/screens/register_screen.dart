@@ -11,6 +11,8 @@ import 'package:kafiil/features/auth/presentation/widget/register_widgets/custom
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_one/register_phase_one.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/register_phase_two.dart';
 
+import '../widget/login_bloc_listener.dart';
+
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
@@ -44,16 +46,16 @@ class RegisterScreen extends StatelessWidget {
         ),
       ),
       resizeToAvoidBottomInset: true,
-      body: Column(
-        children: [
-          const Expanded(
-            flex: 1,
-            child: CustomStepper(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: 0.07.sh,
+            // horizontal: 0.04.sw,
           ),
-          Expanded(
-            flex: 12,
-            child: SingleChildScrollView(
-              child: Padding(
+          child: Column(
+            children: [
+              const CustomStepper(),
+              Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: 0.022.sh,
                   horizontal: 0.04.sw,
@@ -95,9 +97,10 @@ class RegisterScreen extends StatelessWidget {
                   },
                 ),
               ),
-            ),
+              const LoginBlocListener(),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -3,8 +3,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kafiil/core/widgets/app_text_form_field.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/avatar.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/birth_date_field.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/gender_widget.dart';
 import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/salary_widget.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/skills_widget.dart';
+import 'package:kafiil/features/auth/presentation/widget/register_widgets/register_phase_two/social_media_widget.dart';
 
+import '../../../../../../core/helpers/spacing.dart';
+import '../../../../../../core/theming/colors.dart';
+import '../../../../../../core/theming/styles.dart';
+import '../../../../../../core/widgets/app_text_button.dart';
 import '../../../logic/cubit/auth_cubit.dart';
 
 class RegisterPhaseTwo extends StatelessWidget {
@@ -30,8 +37,25 @@ class RegisterPhaseTwo extends StatelessWidget {
               maxLines: 4,
               label: 'About',
             ),
+            verticalSpace(10),
             SalaryWidget(),
+            verticalSpace(10),
             BirthDateField(cubit: cubit),
+            verticalSpace(10),
+            GenderWidget(cubit: cubit),
+            verticalSpace(10),
+            SkillsWidget(cubit: cubit),
+            verticalSpace(10),
+            SocialMediaWidget(cubit: cubit),
+            verticalSpace(25),
+            AppTextButton(
+              buttonText: 'Submit',
+              backgroundColor: ColorsManager.mainColor,
+              textStyle: TextStyles.font16WhiteMedium,
+              onPressed: () async {
+                // await validateThenDoLogin(context);
+              },
+            ),
           ],
         ),
       ),

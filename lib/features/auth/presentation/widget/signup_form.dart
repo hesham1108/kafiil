@@ -29,21 +29,21 @@ class _SignupFormState extends State<SignupForm> {
               }
               return null;
             },
-            controller: widget.authCubit.nameController,
+            controller: widget.authCubit.firstNameController,
           ),
           verticalSpace(18),
-          AppTextFormField(
-            label: 'Phone number',
-            validator: (value) {
-              if (value == null ||
-                  value.isEmpty ||
-                  !AppRegex.isPhoneNumberValid(value)) {
-                return 'Please enter a valid phone number';
-              }
-              return null;
-            },
-            controller: widget.authCubit.phoneController,
-          ),
+          // AppTextFormField(
+          //   label: 'Phone number',
+          //   validator: (value) {
+          //     if (value == null ||
+          //         value.isEmpty ||
+          //         !AppRegex.isPhoneNumberValid(value)) {
+          //       return 'Please enter a valid phone number';
+          //     }
+          //     return null;
+          //   },
+          //   controller: widget.authCubit.phoneController,
+          // ),
           verticalSpace(18),
           AppTextFormField(
             label: 'Email',
@@ -59,7 +59,7 @@ class _SignupFormState extends State<SignupForm> {
           ),
           verticalSpace(18),
           AppTextFormField(
-            controller: widget.authCubit.signupPasswordController,
+            controller: widget.authCubit.registerPasswordController,
             label: 'Password',
             isObscureText: isPasswordObscureText,
             suffixIcon: GestureDetector(

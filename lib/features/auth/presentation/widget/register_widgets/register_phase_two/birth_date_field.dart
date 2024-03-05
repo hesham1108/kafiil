@@ -19,7 +19,12 @@ class BirthDateField extends StatelessWidget {
           label: 'Birth Date',
           enabled: false,
           controller: cubit.birthDateController,
-          suffixIcon: SvgPicture.asset('assets/icons/callendar.svg'),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.all(10),
+            child: SvgPicture.asset(
+              'assets/icons/callender.svg',
+            ),
+          ),
           onTap: () async {
             DateTime? selected = await showDatePicker(
               context: context,

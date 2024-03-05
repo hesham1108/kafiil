@@ -1,29 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-enum NavBarItems { menu, cart, offers, profile, categories }
+enum NavBarItems { whoAmI, countries, services }
 
 class NavItems {
   static final List<BottomNavigationBarItem> navBarItems = [
-    const BottomNavigationBarItem(
-      tooltip: 'Menu',
-      icon: Icon(Icons.fastfood),
-      label: 'Menu',
+    BottomNavigationBarItem(
+      tooltip: 'Who Am I',
+      icon: SvgPicture.asset('assets/icons/who_am_i.svg'),
+      label: 'Who Am I',
     ),
-    const BottomNavigationBarItem(
-      icon: Icon(Icons.shopping_cart),
-      label: 'cart',
+    BottomNavigationBarItem(
+      tooltip: 'Countries',
+      icon: SvgPicture.asset('assets/icons/countries.svg'),
+      label: 'Countries',
     ),
-    const BottomNavigationBarItem(
-      icon: Icon(Icons.category_outlined),
-      label: 'categories',
-    ),
-    const BottomNavigationBarItem(
-      icon: Icon(Icons.percent),
-      label: 'offer',
-    ),
-    const BottomNavigationBarItem(
-      icon: Icon(Icons.person),
-      label: 'profile',
+    BottomNavigationBarItem(
+      tooltip: 'Services',
+      icon: SvgPicture.asset('assets/icons/services.svg'),
+      label: 'Services',
     ),
   ];
 }

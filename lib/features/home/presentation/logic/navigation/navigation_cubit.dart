@@ -7,31 +7,26 @@ part 'navigation_state.dart';
 class NavigationCubit extends Cubit<NavigationState> {
   NavigationCubit()
       : super(const NavigationState(
-          navBarItem: NavBarItems.menu,
+          navBarItem: NavBarItems.whoAmI,
           index: 0,
         ));
 
   void getNavBarItem(NavBarItems navBarItem) {
     switch (navBarItem) {
-      case NavBarItems.menu:
-        emit(const NavigationState(navBarItem: NavBarItems.menu, index: 0));
+      case NavBarItems.whoAmI:
+        emit(const NavigationState(navBarItem: NavBarItems.whoAmI, index: 0));
         break;
-      case NavBarItems.cart:
-        emit(const NavigationState(navBarItem: NavBarItems.cart, index: 1));
-        break;
-      case NavBarItems.categories:
-        emit(const NavigationState(
-            navBarItem: NavBarItems.categories, index: 2));
-        break;
-      case NavBarItems.offers:
-        emit(const NavigationState(navBarItem: NavBarItems.offers, index: 3));
+      case NavBarItems.countries:
+        emit(
+            const NavigationState(navBarItem: NavBarItems.countries, index: 1));
         break;
 
-      case NavBarItems.profile:
-        emit(const NavigationState(navBarItem: NavBarItems.profile, index: 4));
+      case NavBarItems.services:
+        emit(const NavigationState(navBarItem: NavBarItems.services, index: 2));
         break;
+
       default:
-        emit(const NavigationState(navBarItem: NavBarItems.menu, index: 0));
+        emit(const NavigationState(navBarItem: NavBarItems.whoAmI, index: 0));
         break;
     }
   }
@@ -39,22 +34,17 @@ class NavigationCubit extends Cubit<NavigationState> {
   void setIndex(int index) {
     switch (index) {
       case 0:
-        getNavBarItem(NavBarItems.menu);
+        getNavBarItem(NavBarItems.whoAmI);
         break;
       case 1:
-        getNavBarItem(NavBarItems.cart);
+        getNavBarItem(NavBarItems.countries);
         break;
       case 2:
-        getNavBarItem(NavBarItems.categories);
+        getNavBarItem(NavBarItems.services);
         break;
-      case 3:
-        getNavBarItem(NavBarItems.offers);
-        break;
-      case 4:
-        getNavBarItem(NavBarItems.profile);
-        break;
+
       default:
-        getNavBarItem(NavBarItems.menu);
+        getNavBarItem(NavBarItems.whoAmI);
     }
   }
 }

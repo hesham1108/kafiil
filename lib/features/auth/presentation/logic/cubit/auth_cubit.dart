@@ -17,24 +17,31 @@ class AuthCubit extends Cubit<AuthState> {
   final LocalStorage localStorage;
   AuthCubit({required this.authRepo, required this.localStorage})
       : super(AuthInitial());
+
+  // login form key and controllers
+  final loginFormKey = GlobalKey<FormState>();
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final loginFormKey = GlobalKey<FormState>();
-  final phaseOneFormKey = GlobalKey<FormState>();
-  final phaseTwoFormKey = GlobalKey<FormState>();
 
-  final TextEditingController aboutController = TextEditingController();
-  TextEditingController salaryController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
-  final TextEditingController birthDateController = TextEditingController();
-  final TextEditingController nameController =
-      TextEditingController(text: '1000');
-  final TextEditingController signupPasswordController =
-      TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
+  // register phase one form key and controllers
+  final phaseOneFormKey = GlobalKey<FormState>();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController registerPasswordController =
+      TextEditingController();
   final TextEditingController passwordConfirmationController =
       TextEditingController();
+  final TextEditingController userTypeController = TextEditingController();
+
+  // register phase two form key and controllers
+  final phaseTwoFormKey = GlobalKey<FormState>();
+  TextEditingController imageController = TextEditingController();
+  final TextEditingController aboutController = TextEditingController();
+  TextEditingController salaryController = TextEditingController(text: '1000');
+  final TextEditingController birthDateController = TextEditingController();
+  TextEditingController genderController = TextEditingController();
 
   setSalary(int salary) {
     salaryController.text = salary.toString();
@@ -46,6 +53,10 @@ class AuthCubit extends Cubit<AuthState> {
 
   setBirthDate(DateTime birthDate) {
     birthDateController.text = birthDate.toString().split(' ')[0].toString();
+  }
+
+  setGender(int gender) {
+    genderController.text = gender.toString();
   }
 
   Future<void> login() async {

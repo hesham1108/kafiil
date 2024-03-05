@@ -14,10 +14,11 @@ class AppTextFormField extends StatelessWidget {
     this.inputTextStyle,
     this.hintStyle,
     this.hintText,
+    this.initialValue,
     required this.label,
     this.isObscureText,
     this.suffixIcon,
-    this.backgroundColor = ColorsManager.mediumGray,
+    this.backgroundColor = ColorsManager.grey50,
     this.controller,
     this.validator,
     this.maxLines,
@@ -28,7 +29,7 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? focusedBorder, enabledBorder;
   final TextStyle? inputTextStyle, hintStyle;
   final String label;
-  final String? hintText;
+  final String? hintText, initialValue;
   final bool? isObscureText;
   final Widget? suffixIcon;
   final Color? backgroundColor;
@@ -45,12 +46,13 @@ class AppTextFormField extends StatelessWidget {
         Text(label, style: TextStyles.font12GreyMedium),
         verticalSpace(8),
         TextFormField(
+          initialValue: initialValue,
           // enabled: enabled,
           cursorHeight: enabled ? null : 0,
           keyboardType: enabled ? null : TextInputType.none,
           showCursor: enabled,
           onTap: onTap,
-          controller: controller,
+          controller: initialValue == null ? controller : null,
           decoration: InputDecoration(
             isDense: true,
             border: InputBorder.none,
