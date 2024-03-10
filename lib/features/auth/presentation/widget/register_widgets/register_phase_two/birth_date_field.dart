@@ -16,8 +16,6 @@ class BirthDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthCubit, AuthState>(
-      // buildWhen: (current, next) =>
-      //     current is AuthBirthDateSelected || next is AuthBirthDateSelected,
       builder: (context, state) {
         return AppTextFormField(
           label: 'Birth Date',
